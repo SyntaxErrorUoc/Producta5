@@ -46,7 +46,53 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+      <dependency>
+          <groupId>jakarta.persistence</groupId>
+          <artifactId>jakarta.persistence-api</artifactId>
+          <version>3.1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <version>2.1.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.hibernate.orm</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>6.4.0.Final</version>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.4.8</version> <!-- Asegúrate de usar la versión más reciente -->
+      </dependency>
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-fxml</artifactId>
+          <version>22-ea+16</version>
+      </dependency>
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-graphics</artifactId>
+          <version>22-ea+16</version>
+      </dependency>
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-graphics</artifactId>
+          <version>21-ea+24</version>
+      </dependency>
+      <dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>8.0.1</version>
+      </dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.33</version>
+      </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -68,7 +114,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.onlinestore.onlinestore_producto5/com.onlinestore.onlinestore_producto5.HelloApplication</mainClass>
+              <mainClass>com.onlinestore.onlinestore_producto5/vista.GestionOS</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

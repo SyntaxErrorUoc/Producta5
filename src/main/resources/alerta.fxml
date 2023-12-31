@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="211.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controlador.controladorAlerta">
+   <children>
+      <Label layoutX="21.0" layoutY="24.0" prefHeight="46.0" prefWidth="120.0" text="Alerta">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensajeAlerta" layoutX="21.0" layoutY="97.0" text="Mensaje....">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="3.0" layoutY="160.0" prefHeight="40.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <buttons>
+          <Button fx:id="btn_cerraralerta" mnemonicParsing="false" onAction="#clk_cerraralerta" text="Cerrar" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
