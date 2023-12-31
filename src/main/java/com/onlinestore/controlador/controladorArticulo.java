@@ -1,6 +1,5 @@
 package com.onlinestore.controlador;
 
-import com.onlinestore.ConexionMySQL.DatabaseConnectionException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -71,14 +70,19 @@ public class controladorArticulo implements Initializable {
     @FXML
     private TableView<Articulo> table_articulos;
 
+    @FXML
+    private ComboBox<String> cmb_cpArticulo;
 
-    public controladorArticulo() throws DatabaseConnectionException {
 
-        this.datos = new Datos();
-
-    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            datos = new Datos();
+            cargarComboBoxArticulos();
+        } catch (Exception e) {
+            // Manejar excepción, como mostrar un mensaje de error
+            e.printStackTrace();
+        }
 
     }
 
@@ -97,7 +101,7 @@ public class controladorArticulo implements Initializable {
         String cp="";
         Articulo a;
 
-        cp = cpArticulo.getText();
+        cp = cmb_cpArticulo.getValue();
         a = datos.obtenerArticulo(cp);
 
         if (articuloExiste(cp)){
@@ -117,7 +121,7 @@ public class controladorArticulo implements Initializable {
         // Mostrar un artículo
         String cp;
         Articulo art;
-        cp = cpArticulo.getText();
+        cp = cmb_cpArticulo.getValue();
 
         // Asociamos las columnas
         clm_cp.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -190,13 +194,10 @@ public class controladorArticulo implements Initializable {
                     int horas = Integer.parseInt(partes[0]);
                     int minutos = Integer.parseInt(partes[1]);
                     tiempoPrep = Duration.ofHours(horas).plusMinutes(minutos);
-
-
                     // -------------------------------------------------------------
                     Articulo nuevoA = new Articulo(cp,desc,precio,tiempoPrep);
                     datos.agregarArticulo(nuevoA);
                     // -------------------------------------------------------------
-
                 }catch(NumberFormatException e){
                     alerta("La hora no es valida");
                 }
@@ -282,4 +283,16 @@ public class controladorArticulo implements Initializable {
         alert.setContentText(textoinfo);
         alert.showAndWait();
     }
+
+    private void cargarComboBoxArticulos() {
+        ArrayList<Articulo> art = datos.obtenerArticulos();
+        ObservableList<String> nombresArticulos = FXCollections.observableArrayList();
+
+        for (Articulo articulo : art) {
+            nombresArticulos.add(articulo.getCodigo());
+        }
+
+        cmb_cpArticulo.setItems(nombresArticulos);
+    }
+
 }
