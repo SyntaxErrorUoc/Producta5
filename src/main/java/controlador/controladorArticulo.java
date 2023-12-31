@@ -187,7 +187,12 @@ public class controladorArticulo implements Initializable {
         Articulo a;
         a = datos.obtenerArticulo(cp);
         if (articuloExiste(cp)){
-            // Si existe el artículo
+            // Mostramos los datos
+            descripcionArticulo.setText(a.getDescripcion());
+            precioArticulo.setText(String.valueOf(a.getPrecio()));
+            tiempopreparacionArticulo.setText(String.valueOf(a.getTiempoPreparacion()));
+
+            // cargamos lo que hay escrito
             desc = descripcionArticulo.getText();
             precio = Double.parseDouble(precioArticulo.getText());
             tiempo = tiempopreparacionArticulo.getText();
@@ -205,7 +210,7 @@ public class controladorArticulo implements Initializable {
                     // -------------------------------------------------------------
 
                 }catch(NumberFormatException e){
-                    System.out.println("La hora no es valida");
+                    alerta("La hora no es valida");
                 }
             }
         }else {
@@ -240,7 +245,7 @@ public class controladorArticulo implements Initializable {
                 // -------------------------------------------------------------
 
             }catch(NumberFormatException e){
-                System.out.println("La hora no es valida");
+                alerta("La hora no es valida");
             }
         }
     }
