@@ -108,7 +108,7 @@ public class controladorArticulo implements Initializable {
             informacion("Articulo existente");
             descripcionArticulo.setText(a.getDescripcion());
             precioArticulo.setText(String.valueOf((a.getPrecio())));
-            tiempopreparacionArticulo.setText(String.valueOf(a.getTiempoPreparacion()));
+            tiempopreparacionArticulo.setText(a.convertirDurationToString(a.getTiempoPreparacion()));
         }else{
             alerta("Código de producto no existente.");
         }
