@@ -1,4 +1,4 @@
-package com.onlinestore.onlinestore_producto5.modelo;
+package modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
