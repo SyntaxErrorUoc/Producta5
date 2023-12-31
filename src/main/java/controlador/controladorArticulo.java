@@ -98,12 +98,6 @@ public class controladorArticulo implements Initializable {
         String cp="";
         Articulo a;
 
-        // Asociamos las columnas
-        clm_cp.setCellValueFactory(new PropertyValueFactory<>("cp"));
-        clm_descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        clm_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        clm_tiempoPreparacion.setCellValueFactory(new PropertyValueFactory<>("tiempoPreparacion"));
-
         cp = cpArticulo.getText();
         a = datos.obtenerArticulo(cp);
 
@@ -112,7 +106,6 @@ public class controladorArticulo implements Initializable {
             descripcionArticulo.setText(a.getDescripcion());
             precioArticulo.setText(String.valueOf((a.getPrecio())));
             tiempopreparacionArticulo.setText(String.valueOf(a.getTiempoPreparacion()));
-
         }else{
             alerta("Código de producto no existente.");
         }
@@ -133,7 +126,6 @@ public class controladorArticulo implements Initializable {
         clm_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         clm_tiempoPreparacion.setCellValueFactory(new PropertyValueFactory<>("tiempoPreparacion"));
 
-
         if(articuloExiste(cp)){
             Articulo articulosList = datos.obtenerArticulo(cp);
             ObservableList<Articulo> articulosObservableList = FXCollections.observableArrayList(articulosList);
@@ -141,7 +133,6 @@ public class controladorArticulo implements Initializable {
         }else{
             alerta("Código de producto no existente.");
         }
-
     }
 
     @FXML
@@ -170,8 +161,6 @@ public class controladorArticulo implements Initializable {
         }else{
             alerta("Código de producto no existente.");
         }
-
-
     }
 
     @FXML
