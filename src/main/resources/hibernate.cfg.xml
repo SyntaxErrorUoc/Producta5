@@ -17,9 +17,9 @@
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="modelo.Articulo"/>
-        <mapping class="modelo.Cliente"/>
-        <mapping class="modelo.Pedido"/>
+        <mapping class="com.onlinestore.modelo.Articulo"/>
+        <mapping class="com.onlinestore.modelo.Cliente"/>
+        <mapping class="com.onlinestore.modelo.Pedido"/>
 
     </session-factory>
 </hibernate-configuration>

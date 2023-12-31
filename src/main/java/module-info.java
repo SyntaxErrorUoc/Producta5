@@ -8,12 +8,12 @@ module com.onlinestore.onlinestore_producto5 {
     requires java.naming;
     requires javaee.api;
 
-    opens com.onlinestore.onlinestore_producto5 to javafx.fxml;
-    exports com.onlinestore.onlinestore_producto5;
-    exports vista;
-    opens vista to javafx.fxml;
-    exports controlador;
-    opens controlador to javafx.fxml;
-    exports modelo;
-    opens modelo to org.hibernate.orm.core;
+    opens com.onlinestore to javafx.fxml;
+    exports com.onlinestore;
+    exports com.onlinestore.vista;
+    opens com.onlinestore.vista to javafx.fxml;
+    exports com.onlinestore.controlador;
+    opens com.onlinestore.controlador to javafx.fxml;
+    exports com.onlinestore.modelo;
+    opens com.onlinestore.modelo to org.hibernate.orm.core;
 }
