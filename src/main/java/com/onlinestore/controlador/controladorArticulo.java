@@ -294,5 +294,4 @@ public class controladorArticulo implements Initializable {
 
         cmb_cpArticulo.setItems(nombresArticulos);
     }
-
 }
