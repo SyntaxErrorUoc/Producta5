@@ -71,6 +71,8 @@ public class ClienteEstandar extends Cliente {
 		this.vip = vip;
 	}
 
+
+
 	/**
 	 * Implementación de la clase abstracta tipoCliente
 	 * @return devuelve un tipo String
@@ -111,6 +113,8 @@ public class ClienteEstandar extends Cliente {
 	public String toString() {
 		return super.toString() + "CLIENTE STANDARD\n";
 	}
-	
 
+	public int getCuotaAnual() {
+		return cuotaAnual;
+	}
 }

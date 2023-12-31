@@ -2,6 +2,8 @@ package controlador;
 
 import ConexionMySQL.DatabaseConnectionException;
 import jakarta.persistence.Table;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -64,7 +66,7 @@ public class controladorCliente implements Initializable {
     @FXML
     private TableColumn<Cliente, Boolean> grid_vip;
     @FXML
-    private TableColumn<Cliente, String> grid_nombre;
+    private TableColumn<Cliente, String> grid_name;
     @FXML
     private TableColumn<Cliente, String> grid_direccion;
     @FXML
@@ -121,12 +123,21 @@ public class controladorCliente implements Initializable {
         table_clientes.getItems().clear();
         table_clientes.setEditable(true);
         ArrayList<Cliente> cl = datos.mostrarTodosLosClientes();
-        grid_mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+
+        grid_mail.setCellValueFactory(new PropertyValueFactory<>("correoElectronico"));
         grid_vip.setCellValueFactory(new PropertyValueFactory<>("vip"));
-        grid_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        grid_name.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         grid_direccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        grid_descuento.setCellValueFactory(new PropertyValueFactory<>("descuento"));
-        grid_cuota.setCellValueFactory(new PropertyValueFactory<>("cuotaAnual"));
+        grid_descuento.setCellValueFactory(cellData ->
+                cellData.getValue() instanceof ClientePremium ?
+                        new SimpleDoubleProperty(((ClientePremium) cellData.getValue()).getDescuento()).asObject() :
+                        new SimpleDoubleProperty(0.0).asObject());
+        grid_cuota.setCellValueFactory(cellData ->
+                cellData.getValue() instanceof ClientePremium ?
+                        new SimpleDoubleProperty(((ClientePremium) cellData.getValue()).getCuotaAnual()).asObject() :
+                        new SimpleDoubleProperty(0.0).asObject());
+
+
 
         for (Cliente cli : cl){
 
@@ -135,9 +146,6 @@ public class controladorCliente implements Initializable {
         }
 
     }
-
-
-
     @FXML
     void clk_buscar(ActionEvent event) {
 

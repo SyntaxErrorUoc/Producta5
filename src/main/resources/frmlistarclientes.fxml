@@ -17,7 +17,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="132.0" prefWidth="798.0">
                <children>
-                  <RadioButton fx:id="opt_clientesTodos" layoutX="29.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clientesTodos" text="Ver todos">
+                  <RadioButton fx:id="opt_clientesTodos" layoutX="29.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clientesTodos" selected="true" text="Ver todos">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>

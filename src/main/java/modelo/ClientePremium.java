@@ -28,6 +28,8 @@ public class ClientePremium extends Cliente{
 	public ClientePremium(String correoElectronico, String nombre, String direccion, double descuento) {
 		super(correoElectronico, nombre, direccion);
 		this.descuento = descuento;
+		this.cuotaAnual = 0;
+		this.descuento = 0;
 
 	}
 
@@ -81,6 +83,14 @@ public class ClientePremium extends Cliente{
 		// Implementación del cálculo de la cuota anual para un cliente premium.
 		double cuota = 30.0;
 		return cuota;
+	}
+
+	public double getDescuento() {
+		return descuento;
+	}
+
+	public int getCuotaAnual() {
+		return cuotaAnual;
 	}
 
 	/**
