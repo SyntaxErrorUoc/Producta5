@@ -1,4 +1,4 @@
-package com.onlinestore.onlinestore_producto5.modelo;
+package com.onlinestore.modelo;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Formula;
@@ -18,11 +18,10 @@ public abstract class Cliente {
 	private String correoElectronico;
 	@Column(name ="nombre")
 	private String nombre;
-	@Column(name = "direccion")
-	private String direccion;
 	@Column(name = "apellidos")
 	private String apellidos;
-
+	@Column(name = "direccion")
+	private String direccion;
 
 	/**
 	 * Esta parte sirve para poder modificar el cambio TipoVip y que siempre quede actualizado.
