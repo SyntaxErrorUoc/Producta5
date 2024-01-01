@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="927.0"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controlador.controladorMenu">
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.controladorMenu">
    <effect>
       <DropShadow />
    </effect>
@@ -27,9 +29,6 @@
                   <MenuItem id="EditarCliente" fx:id="mnu_editarcliente" mnemonicParsing="false" onAction="#clk_editarcliente" text="Editar Cliente" />
                   <MenuItem id="EliminarCliente" fx:id="mnu_eliminarcliente" mnemonicParsing="false" onAction="#clk_eliminarcliente" text="Eliminar Cliente" />
                   <MenuItem id="BuscarCliente" fx:id="mnu_buscarcliente" mnemonicParsing="false" onAction="#clk_buscarcliente" text="MostrarCliente" />
-                  <MenuItem id="ListarPremium" fx:id="mnu_listarpremium" mnemonicParsing="false" onAction="#clk_listapremium" text="Mostrar Clientes Premium" />
-                  <MenuItem id="ListarEstandar" fx:id="mnu_listarestandar" mnemonicParsing="false" onAction="#clk_listaestandar" text="Mostrar Clientes Estandar" />
-              <MenuItem id="MostrarTodosClientes" fx:id="mnu_listartodosclientes" mnemonicParsing="false" onAction="#clk_mostrartodosclientes" text="Mostrar Clientes" />
             </items>
           </Menu>
           <Menu id="mnu_Pedidos" mnemonicParsing="false" text="Pedido">

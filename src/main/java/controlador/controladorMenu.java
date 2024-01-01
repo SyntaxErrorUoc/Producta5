@@ -54,7 +54,7 @@ public class controladorMenu implements Initializable  {
 
     @FXML
     void clk_editarcliente(ActionEvent event)  throws IOException {
-        switchscene(event, "/frm_cliente_li.fxml");
+        switchscene(event, "/frmmodificarcliente.fxml");
     }
 
     @FXML

@@ -15,9 +15,9 @@
    <children>
       <SplitPane dividerPositions="0.11152416356877323" layoutX="352.0" layoutY="100.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="132.0" prefWidth="798.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="798.0">
                <children>
-                  <RadioButton fx:id="opt_clientesTodos" layoutX="29.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clientesTodos" selected="true" text="Ver todos">
+                  <RadioButton fx:id="opt_clientesTodos" layoutX="29.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clientesTodos" text="Ver todos">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
@@ -28,7 +28,7 @@
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></RadioButton>
-                  <RadioButton fx:id="opt_clienteEstandar" layoutX="311.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clienteEstandar" text="Ver Estandar" toggleGroup="$seleccion">
+                  <RadioButton fx:id="opt_clienteEstandar" layoutX="311.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_clientesStandard" text="Ver Estandar" toggleGroup="$seleccion">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></RadioButton>
@@ -36,7 +36,7 @@
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></Label>
-                  <TextField layoutX="544.0" layoutY="16.0">
+                  <TextField fx:id="opt_buscarCliente" layoutX="544.0" layoutY="16.0">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font></TextField>
