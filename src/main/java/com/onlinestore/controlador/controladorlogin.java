@@ -18,8 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.onlinestore.modelo.Datos;
-import com.onlinestore.modelo.Usuarios;
+import com.onlinestore.modelo.Usuario;
 
 public class controladorlogin implements Initializable {
 
@@ -36,7 +35,7 @@ public class controladorlogin implements Initializable {
     private TextField txtUsuario;
 
     private Datos datos;
-    public Stage stage;
+    public Stage stage = new Stage();
     public Scene scene;
     public Parent root;
 
@@ -54,8 +53,8 @@ public class controladorlogin implements Initializable {
     void clk_iniciar(ActionEvent event) {
         String user;
         String pass;
-        Usuarios usuario = null;
-        Usuarios check = null;
+        Usuario usuario = null;
+        Usuario check = null;
         user = txtUsuario.getText();
         pass = txtPasswword.getText();
         if (datos.verificarusuario(user)==false){

@@ -1,6 +1,6 @@
 package com.onlinestore.DAO;
 
-import com.onlinestore.modelo.Usuarios;
+import com.onlinestore.modelo.Usuario;
 
-public interface UsuarioDAO extends DAO<Usuarios,String> {
+public interface UsuarioDAO extends DAO<Usuario,String> {
 }

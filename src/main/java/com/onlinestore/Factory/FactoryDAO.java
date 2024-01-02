@@ -9,7 +9,7 @@ import com.onlinestore.DAO.UsuarioDAO;
 import com.onlinestore.modelo.Articulo;
 import com.onlinestore.modelo.Cliente;
 import com.onlinestore.modelo.Pedido;
-import com.onlinestore.modelo.Usuarios;
+import com.onlinestore.modelo.Usuario;
 import org.hibernate.SessionFactory;
 
 import java.sql.Connection;
@@ -95,7 +95,7 @@ public class FactoryDAO {
      */
     public SessionFactory MySQLUsuarios()  {
         SessionFactory ConexionPedido = null;
-        ConexionPedido = ConexionMySQL.conectarMySQL(Usuarios.class);
+        ConexionPedido = ConexionMySQL.conectarMySQL(Usuario.class);
 
         return ConexionPedido;
     }

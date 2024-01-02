@@ -1,7 +1,7 @@
 package com.onlinestore.Factory;
 
 import com.onlinestore.DAO.UsuarioDAO;
-import com.onlinestore.modelo.Usuarios;
+import com.onlinestore.modelo.Usuario;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -21,11 +21,11 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     }
 
     @Override
-    public String insertar(Usuarios user) {
+    public String insertar(Usuario user) {
         // Creamos el enlace con la BBDD
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class)
+                .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
         Session session = sessionFactory.openSession();
         try{
@@ -41,10 +41,10 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     }
 
     @Override
-    public void modificar(Usuarios user) {
+    public void modificar(Usuario user) {
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class)
+                .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
 
         Session session = sessionFactory.openSession();
@@ -63,12 +63,12 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     public void eliminar(String campo) {
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class)
+                .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Usuarios u = session.get(Usuarios.class,campo);
+            Usuario u = session.get(Usuario.class,campo);
             session.delete(u);
             session.getTransaction().commit();
             session.close();
@@ -80,18 +80,18 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     }
 
     @Override
-    public ArrayList<Usuarios> obtenerTodos() {
+    public ArrayList<Usuario> obtenerTodos() {
 
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class)
+                .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
             String filtro = "from Usuarios";
-            Query<Usuarios> query = session.createQuery(filtro, Usuarios.class);
-            ArrayList<Usuarios> users = (ArrayList<Usuarios>) query.list();
+            Query<Usuario> query = session.createQuery(filtro, Usuario.class);
+            ArrayList<Usuario> users = (ArrayList<Usuario>) query.list();
             session.close();
             sessionFactory.close();
             // -------------------------------------------------------------
@@ -103,14 +103,14 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     }
 
     @Override
-    public Usuarios obtenerUno(String id) {
+    public Usuario obtenerUno(String nombre) {
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class).buildSessionFactory();
+                .addAnnotatedClass(Usuario.class).buildSessionFactory();
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Usuarios u = session.get(Usuarios.class,id);
+            Usuario u = session.get(Usuario.class, nombre);
             session.close();
             sessionFactory.close();
             return u;
@@ -121,22 +121,22 @@ public class UsuarioDAOFactoryMySQL implements UsuarioDAO {
     }
 
     @Override
-    public ArrayList<Usuarios> obtenerPorCriterio(String columna, String criterio) {
+    public ArrayList<Usuario> obtenerPorCriterio(String columna, String criterio) {
         SessionFactory sessionFactory = (SessionFactory) new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Usuarios.class)
+                .addAnnotatedClass(Usuario.class)
                 .buildSessionFactory();
         Session session = sessionFactory.openSession();
         try {
-            ArrayList<Usuarios> listausuarios = new ArrayList<>();
+            ArrayList<Usuario> listausuarios = new ArrayList<>();
             session.beginTransaction();
             CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<Usuarios> criteriaQuery = builder.createQuery(Usuarios.class);
-            Root<Usuarios> root = criteriaQuery.from(Usuarios.class);
+            CriteriaQuery<Usuario> criteriaQuery = builder.createQuery(Usuario.class);
+            Root<Usuario> root = criteriaQuery.from(Usuario.class);
             // Agregar la cláusula WHERE
             criteriaQuery.where(builder.equal(root.get(columna), criterio));
-            Query<Usuarios> query = session.createQuery(criteriaQuery);
-            listausuarios = (ArrayList<Usuarios>) query.getResultList();
+            Query<Usuario> query = session.createQuery(criteriaQuery);
+            listausuarios = (ArrayList<Usuario>) query.getResultList();
             session.getTransaction().commit();
             return listausuarios;
         } catch (Exception e) {

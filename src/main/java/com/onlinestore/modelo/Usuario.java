@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuarios {
+public class Usuario {
 
     @Id
     @Column(name = "nombre")
@@ -16,11 +16,15 @@ public class Usuarios {
     @Column(name = "contrasenya")
     private String contrasenya;
 
-    public Usuarios(String usuario, String contrasenya) {
+    public Usuario(String usuario, String contrasenya) {
+        super();
         this.usuario = usuario;
         this.contrasenya = contrasenya;
     }
 
+    public Usuario() {
+
+    }
     public String getUsuario() {
         return usuario;
     }

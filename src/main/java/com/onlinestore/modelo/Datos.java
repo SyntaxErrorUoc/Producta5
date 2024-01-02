@@ -189,15 +189,14 @@ public class Datos {
 
     public boolean verificarusuario(String user){
         boolean encontrado=false;
-        Usuarios check = this.factory.usuario.obtenerUno(user);
-        if (check==null){
-            return false;
-        }else{
-            return true;
+        Usuario check = this.factory.usuario.obtenerUno(user);
+        if (check!=null){
+            encontrado = true;
         }
+        return encontrado;
     }
 
-    public Usuarios obtenerUnUsuario(String id){
+    public Usuario obtenerUnUsuario(String id){
         return this.factory.usuario.obtenerUno(id);
     }
 
