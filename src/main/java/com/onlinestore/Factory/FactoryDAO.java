@@ -2,7 +2,7 @@ package com.onlinestore.Factory;
 
 import com.onlinestore.ConexionMySQL.ConexionMySQL;
 import com.onlinestore.ConexionMySQL.DatabaseConnectionException;
-import DAO.*;
+
 import com.onlinestore.DAO.ArticuloDAO;
 import com.onlinestore.DAO.ClienteDAO;
 import com.onlinestore.DAO.PedidoDAO;
