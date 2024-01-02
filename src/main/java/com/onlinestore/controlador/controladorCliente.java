@@ -58,7 +58,30 @@ public class controladorCliente implements Initializable {
     @FXML
     private CheckBox vip;
     @FXML
+    private TextField descuentoEliminar;
+
+    @FXML
+    private TextField direccionEliminar;
+
+    @FXML
+    private TextField cuotaEliminar;
+
+    @FXML
+    private TextField apellidosEliminar;
+
+    @FXML
+    private TextField mailEliminar;
+
+    @FXML
+    private TextField nombreEliminar;
+
+    @FXML
+    private CheckBox vipEliminar;
+
+    @FXML
     private ComboBox comboCliente;
+    @FXML
+    private ComboBox cmb_Eliminar;
 
     @FXML
     private TextField opt_buscarCliente;
@@ -101,7 +124,10 @@ public class controladorCliente implements Initializable {
 
 
         if (comboCliente!= null){
-            cargarComboBoxCliente();
+            cargarComboBoxCliente(comboCliente);
+        }
+        if (cmb_Eliminar!= null){
+            cargarComboBoxCliente(cmb_Eliminar);
         }
     }
 
@@ -116,13 +142,15 @@ public class controladorCliente implements Initializable {
 
         if (!emailExiste(mail.getText())) {
 
-            if (vip.isSelected()) {
+            if (!vip.isSelected()) {
 
 
                 ClienteEstandar stand = new ClienteEstandar(mail.getText(), nombre.getText(), direccion.getText());
                 datos.agregarCliente(stand);
+                mostrarAlertaCliente("Creacion","Se ha creado un cliente Standard");
             } else {
                 ClientePremium prem = new ClientePremium(mail.getText(), nombre.getText(), direccion.getText(), Float.parseFloat(descuento.getText()));
+                mostrarAlertaCliente("Creacion","Se ha creado un cliente Premium");
                 datos.agregarCliente(prem);
             }
         }else{
@@ -244,7 +272,45 @@ public class controladorCliente implements Initializable {
         }
     }
     @FXML
-    void clk_buscar(ActionEvent event) {
+    void cmb_buscarEliminar(ActionEvent event) {
+
+        String mailClinte = cmb_Eliminar.getValue().toString();
+
+        if (mailClinte != null && !mailClinte.isEmpty()) {
+            try {
+                Cliente cl = datos.obtenerCliente(mailClinte);
+
+                if (cl != null) {
+
+                    nombreEliminar.setText(cl.getNombre().toString());
+                    apellidosEliminar.setText("");
+                    direccionEliminar.setText(cl.getDireccion());
+                    if(cl instanceof ClientePremium){
+                        vipEliminar.setSelected(true);
+                        vipEliminar.setDisable(true);
+                        descuentoEliminar.setText(String.valueOf(((ClientePremium) cl).getDescuento()));
+                        cuotaEliminar.setText(String.valueOf(((ClientePremium) cl).getCuotaAnual()));
+
+                    }
+                    else{
+                        vipEliminar.setSelected(false);
+                        vipEliminar.setDisable(true);
+                        descuentoEliminar.setText("0.0");
+                        cuotaEliminar.setText("0.0");
+                    }
+                    nombreEliminar.setEditable(false);
+                    apellidosEliminar.setEditable(false);
+                    direccionEliminar.setEditable(false);
+                    descuentoEliminar.setEditable(false);
+                    cuotaEliminar.setEditable(false);
+
+
+                }
+            } catch (NumberFormatException e) {
+                // Manejar el error en caso de que el número de pedido no sea un número válido
+                e.printStackTrace();
+            }
+        }
 
     }
 
@@ -255,13 +321,17 @@ public class controladorCliente implements Initializable {
         if (vipmodificar.isSelected()){
             Cliente c = new ClientePremium( comboCliente.getValue().toString(),nombreCliente.getText(),direccionCliente.getText(),Float.parseFloat(descuentoCliente.getText()));
             if (emailExiste(comboCliente.getValue().toString())){
+                mostrarAlertaCliente("Modificacion","Se ha modificado con éxito");
+                datos.modificarCliente(c);
+            }
+        }else if  (!vipmodificar.isSelected()){
+            Cliente c = new ClienteEstandar( comboCliente.getValue().toString(),nombreCliente.getText(),direccionCliente.getText());
+            if (emailExiste(comboCliente.getValue().toString())){
+                mostrarAlertaCliente("Modificacion","Se ha modificado con éxito");
                 datos.modificarCliente(c);
             }
         }else{
-            Cliente c = new ClienteEstandar( comboCliente.getValue().toString(),nombreCliente.getText(),direccionCliente.getText());
-            if (emailExiste(comboCliente.getValue().toString())){
-                datos.modificarCliente(c);
-            }
+            mostrarAlertaCliente("Modificacion","no se ha podido modificar el cliente");
         }
 
     }
@@ -300,8 +370,11 @@ public class controladorCliente implements Initializable {
 
     @FXML
     void clk_eliminar(ActionEvent event) {
-        if (emailExiste(mail.getText())){
-            datos.eliminarCliente(mail.getText());
+        if (emailExiste(cmb_Eliminar.getValue().toString())){
+            datos.eliminarCliente(cmb_Eliminar.getValue().toString());
+            mostrarAlertaCliente("Eliminacion","Se ha eliminado con éxito");
+        }else{
+            mostrarAlertaCliente("Eliminacion","No se ha podido eliminar el cliente");
         }
     }
     public boolean emailExiste(String email) {
@@ -319,14 +392,14 @@ public class controladorCliente implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    private void cargarComboBoxCliente() {
+    private void cargarComboBoxCliente(ComboBox combo) {
         ArrayList<Cliente> cl = datos.mostrarTodosLosClientes();
         ObservableList<String> mailCliente = FXCollections.observableArrayList();
 
         for (Cliente cliente : cl) {
-            mailCliente.add(String.valueOf(cliente.getCorreoElectronico()));
+            mailCliente.add(cliente.getCorreoElectronico());
         }
 
-        comboCliente.setItems(mailCliente);
+        combo.setItems(mailCliente);
     }
 }

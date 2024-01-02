@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,11 +22,14 @@ import java.util.ResourceBundle;
 public class controladorMenu implements Initializable  {
 
     private Stage stage = new Stage();
+    @FXML
+    private BorderPane mainContainer;
     private Scene scene;
     private Parent root;
 
     @FXML
     private AnchorPane content;
+
 
     @FXML
     void clk_acercade(ActionEvent event) throws IOException  {
@@ -39,7 +43,8 @@ public class controladorMenu implements Initializable  {
 
     @FXML
     void clk_buscarcliente(ActionEvent event) throws IOException  {
-        switchscene(event, "/frmlistarclientes.fxml");
+        cargarFormulario("/frmlistarclientes.fxml");
+        //switchscene(event, "/frmlistarclientes.fxml");
     }
 
     @FXML
@@ -49,12 +54,14 @@ public class controladorMenu implements Initializable  {
 
     @FXML
     void clk_editararticulo(ActionEvent event) throws IOException  {
-        switchscene(event, "/frmmodificararticulo.fxml");
+        cargarFormulario("/frmmodificararticulo.fxml");
+        //switchscene(event, "/frmmodificararticulo.fxml");
     }
 
     @FXML
     void clk_editarcliente(ActionEvent event)  throws IOException {
-        switchscene(event, "/frmmodificarcliente.fxml");
+        cargarFormulario("/frmmodificarcliente.fxml");
+        //switchscene(event, "/frmmodificarcliente.fxml");
     }
 
     @FXML
@@ -64,7 +71,8 @@ public class controladorMenu implements Initializable  {
 
     @FXML
     void clk_eliminarcliente(ActionEvent event) throws IOException {
-        switchscene(event, "/frmeliminarcliente.fxml");
+        cargarFormulario("/frmeliminarcliente.fxml");
+        //switchscene(event, "/frmeliminarcliente.fxml");
     }
 
     @FXML
@@ -79,7 +87,8 @@ public class controladorMenu implements Initializable  {
 
     @FXML
     void clk_insertarcliente(ActionEvent event) throws IOException {
-        switchscene(event, "/frmaltacliente.fxml");
+        cargarFormulario("/frmaltacliente.fxml");
+        //switchscene(event, "/frmaltacliente.fxml");
     }
 
     @FXML
@@ -165,6 +174,15 @@ public class controladorMenu implements Initializable  {
             stage.show();
 
         }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void cargarFormulario(String fxml){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent formulario = loader.load();
+            mainContainer.setCenter(formulario);
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
