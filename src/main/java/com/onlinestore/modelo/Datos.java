@@ -5,7 +5,6 @@ import com.onlinestore.Factory.FactoryDAO;
 
 import java.util.ArrayList;
 
-
 public class Datos {
 
     private FactoryDAO factory;
@@ -184,6 +183,22 @@ public class Datos {
      */
     public Pedido obtenerUnPedido(int cp){
         return this.factory.pedido.obtenerUno(cp);
+    }
+
+    // USUARIOS ------------------------------------------------------------------------
+
+    public boolean verificarusuario(String user){
+        boolean encontrado=false;
+        Usuarios check = this.factory.usuario.obtenerUno(user);
+        if (check==null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public Usuarios obtenerUnUsuario(String id){
+        return this.factory.usuario.obtenerUno(id);
     }
 
 }
