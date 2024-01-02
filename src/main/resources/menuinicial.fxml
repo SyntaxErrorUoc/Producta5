@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="927.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.onlinestore.controlador.controladorMenu">
+   <effect>
+      <DropShadow />
+   </effect>
+   <children>
+      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu id="mnu_Articulo" mnemonicParsing="false" text="Artículo">
+            <items>
+              <MenuItem id="InsertarArticulo" fx:id="mnu_insertararticulo" mnemonicParsing="false" onAction="#clk_insertararticulo" text="Insertar Artículo" />
+                  <MenuItem id="EliminarArticulo" fx:id="mnu_eliminararticulo" mnemonicParsing="false" onAction="#clk_eliminararticulo" text="Eliminar Artículo" />
+                  <MenuItem id="EditarArticulo" fx:id="mnu_editararticulo" mnemonicParsing="false" onAction="#clk_editararticulo" text="Editar Artículo" />
+                  <MenuItem id="BuscarArticulo" fx:id="mnu_buscararticulo" mnemonicParsing="false" onAction="#clk_buscararticulo" text="Buscar Artículo" />
+                  <MenuItem id="mostrarTodosArticulo" fx:id="mnu_mostrararticulos" mnemonicParsing="false" onAction="#clk_mostrartodosarticulos" text="Mostrar todos los artículos" />
+            </items>
+          </Menu>
+          <Menu id="mnu_Cliente" mnemonicParsing="false" text="Cliente">
+            <items>
+                  <MenuItem id="InsertarCliente" fx:id="mnu_insertarcliente" mnemonicParsing="false" onAction="#clk_insertarcliente" text="Insertar Cliente" />
+                  <MenuItem id="EditarCliente" fx:id="mnu_editarcliente" mnemonicParsing="false" onAction="#clk_editarcliente" text="Editar Cliente" />
+                  <MenuItem id="EliminarCliente" fx:id="mnu_eliminarcliente" mnemonicParsing="false" onAction="#clk_eliminarcliente" text="Eliminar Cliente" />
+                  <MenuItem id="BuscarCliente" fx:id="mnu_buscarcliente" mnemonicParsing="false" onAction="#clk_buscarcliente" text="MostrarCliente" />
+                  <MenuItem id="ListarPremium" fx:id="mnu_listarpremium" mnemonicParsing="false" onAction="#clk_listapremium" text="Mostrar Clientes Premium" />
+                  <MenuItem id="ListarEstandar" fx:id="mnu_listarestandar" mnemonicParsing="false" onAction="#clk_listaestandar" text="Mostrar Clientes Estandar" />
+              <MenuItem id="MostrarTodosClientes" fx:id="mnu_listartodosclientes" mnemonicParsing="false" onAction="#clk_mostrartodosclientes" text="Mostrar Clientes" />
+            </items>
+          </Menu>
+          <Menu id="mnu_Pedidos" mnemonicParsing="false" text="Pedido">
+            <items>
+              <MenuItem id="InsertarPedido" fx:id="mnu_insertarpedido" mnemonicParsing="false" onAction="#clk_insertarpedido" text="Insertar Pedido" />
+                  <MenuItem id="EliminarPedido" fx:id="mnu_editarpedido" mnemonicParsing="false" onAction="#clk_eliminarpedido" text="Eliminar Pedido" />
+                  <MenuItem id="BuscarPedido" fx:id="mnu_buscarpedido" mnemonicParsing="false" onAction="#clk_buscarpedido" text="BuscarPedido" />
+                  <MenuItem id="ListarPendientes" fx:id="mnu_listarpendientes" mnemonicParsing="false" onAction="#clk_listarpendientes" text="Listar Pedidos Pendientes " />
+                  <MenuItem id="ListarEnviados" fx:id="mnu_listarenviados" mnemonicParsing="false" onAction="#clk_listarenviados" text="Listar Pedidos Enviados" />
+                  <MenuItem id="MostrarTodosPedidos" fx:id="mnu_listartodospedidos" mnemonicParsing="false" onAction="#clk_mostrartodospedidos" text="Mostrar Pedidos" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Salir">
+              <items>
+                <MenuItem id="AcercaDe" fx:id="mnu_acercade" mnemonicParsing="false" onAction="#clk_acercade" text="Acerca de..." />
+                  <MenuItem id="Salir" fx:id="mnu_salir" mnemonicParsing="false" onAction="#clk_salir" text="Cerrar aplicación" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane layoutX="244.0" layoutY="178.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <items>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane fx:id="menuformulario" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                <AnchorPane fx:id="menulistado" minHeight="0.0" minWidth="0.0" prefHeight="355.0" prefWidth="925.0" />
+              </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
