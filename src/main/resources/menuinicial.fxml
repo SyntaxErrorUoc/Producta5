@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="927.0"
             xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.onlinestore.controlador.controladorMenu">
+=======
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.onlinestore.controlador.controladorMenu">
+>>>>>>> 3124131 (update to juan)
    <effect>
       <DropShadow />
    </effect>
@@ -36,10 +48,14 @@
             <items>
               <MenuItem id="InsertarPedido" fx:id="mnu_insertarpedido" mnemonicParsing="false" onAction="#clk_insertarpedido" text="Insertar Pedido" />
                   <MenuItem id="EliminarPedido" fx:id="mnu_editarpedido" mnemonicParsing="false" onAction="#clk_eliminarpedido" text="Eliminar Pedido" />
+<<<<<<< HEAD
                   <MenuItem id="BuscarPedido" fx:id="mnu_buscarpedido" mnemonicParsing="false" onAction="#clk_buscarpedido" text="BuscarPedido" />
                   <MenuItem id="ListarPendientes" fx:id="mnu_listarpendientes" mnemonicParsing="false" onAction="#clk_listarpendientes" text="Listar Pedidos Pendientes " />
                   <MenuItem id="ListarEnviados" fx:id="mnu_listarenviados" mnemonicParsing="false" onAction="#clk_listarenviados" text="Listar Pedidos Enviados" />
                   <MenuItem id="MostrarTodosPedidos" fx:id="mnu_listartodospedidos" mnemonicParsing="false" onAction="#clk_mostrartodospedidos" text="Mostrar Pedidos" />
+=======
+                  <MenuItem id="BuscarPedido" fx:id="mnu_buscarpedido" mnemonicParsing="false" onAction="#clk_buscarpedido" text="Mostrar Pedidos" />
+>>>>>>> 3124131 (update to juan)
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Salir">
@@ -52,13 +68,23 @@
       </MenuBar>
       <SplitPane layoutX="244.0" layoutY="178.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <items>
+<<<<<<< HEAD
             <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
                 <AnchorPane fx:id="menuformulario" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                 <AnchorPane fx:id="menulistado" minHeight="0.0" minWidth="0.0" prefHeight="355.0" prefWidth="925.0" />
+=======
+            <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane fx:id="menuformulario" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+>>>>>>> 3124131 (update to juan)
               </items>
             </SplitPane>
          </items>
       </SplitPane>
+<<<<<<< HEAD
+=======
+      <BorderPane fx:id="mainContainer" layoutY="27.0" prefHeight="552.0" prefWidth="925.0" />
+>>>>>>> 3124131 (update to juan)
    </children>
 </AnchorPane>

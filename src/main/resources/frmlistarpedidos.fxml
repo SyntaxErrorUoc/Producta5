@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -11,4 +12,67 @@
             fx:controller="Frmlistarpedidos"
             prefHeight="400.0" prefWidth="600.0">
 
+=======
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.onlinestore.controlador.controladorPedido">
+   <children>
+      <SplitPane dividerPositions="0.11152416356877323" layoutX="352.0" layoutY="100.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="132.0" prefWidth="798.0">
+               <children>
+                  <RadioButton fx:id="opt_pedidoListarTodos" layoutX="29.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_pedidoListarTodos" text="Ver todos">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="seleccion" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="opt_pedidoListarEnviado" layoutX="163.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_opt_pedidoListarEnviado" text="Enviados" toggleGroup="$seleccion">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></RadioButton>
+                  <RadioButton fx:id="opt_pedidoListarPediente" layoutX="311.0" layoutY="20.0" mnemonicParsing="false" onAction="#clk_pedidoListarPendiente" text="Pendientes" toggleGroup="$seleccion">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></RadioButton>
+                  <Label layoutX="533.0" layoutY="21.0" prefHeight="16.0" prefWidth="97.0" text="Buscar Pedido">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></Label>
+                  <ComboBox fx:id="cmbPedidoListar" layoutX="650.0" layoutY="17.0" onAction="#clk_listarPedidoCombo" prefHeight="25.0" prefWidth="236.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="798.0">
+               <children>
+                  <TableView fx:id="table_Pedidos">
+                    <columns>
+                      <TableColumn fx:id="grid_NumPedido" prefWidth="204.0" text="Numero Pedido" />
+                      <TableColumn fx:id="grid_FechaHora" minWidth="0.0" prefWidth="127.0" text="Fecha / Hora Pedido" />
+                        <TableColumn fx:id="grid_costeEnvio" prefWidth="169.0" text="Coste de envio" />
+                        <TableColumn fx:id="grid_cantidad" prefWidth="74.0" text="Cantidad" />
+                        <TableColumn fx:id="grid_enviado" prefWidth="84.0" text="Enviado" />
+                        <TableColumn fx:id="grid_codArticulo" prefWidth="139.0" text="Codigo Articulo" />
+                        <TableColumn fx:id="grid_cliente" prefWidth="139.0" text="Cliente" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label layoutX="14.0" layoutY="14.0" text="LISTADO DE PEDIDOS">
+         <font>
+            <Font name="Arial Bold" size="27.0" />
+         </font>
+      </Label>
+   </children>
+>>>>>>> 3124131 (update to juan)
 </AnchorPane>

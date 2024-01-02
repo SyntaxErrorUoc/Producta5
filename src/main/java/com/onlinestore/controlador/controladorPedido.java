@@ -1,15 +1,27 @@
 package com.onlinestore.controlador;
 
+<<<<<<< HEAD
+=======
+import com.onlinestore.ConexionMySQL.DatabaseConnectionException;
+>>>>>>> 3124131 (update to juan)
 import com.onlinestore.modelo.Articulo;
 import com.onlinestore.modelo.Cliente;
 import com.onlinestore.modelo.Datos;
 import com.onlinestore.modelo.Pedido;
+<<<<<<< HEAD
+=======
+import javafx.beans.property.*;
+>>>>>>> 3124131 (update to juan)
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+<<<<<<< HEAD
+=======
+import javafx.scene.control.cell.PropertyValueFactory;
+>>>>>>> 3124131 (update to juan)
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -18,22 +30,46 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Date;
+>>>>>>> 3124131 (update to juan)
 import java.util.ResourceBundle;
 
 
 public class controladorPedido implements Initializable  {
 
     private Datos datos;
+<<<<<<< HEAD
+=======
+    private Pedido pedidos;
+>>>>>>> 3124131 (update to juan)
 
     @FXML
     private TextField txtNumPedido;
     @FXML
+<<<<<<< HEAD
+=======
+    private TextField txtcodigoProducto;
+    @FXML
+    private TextField txtClienteEliminar;
+    @FXML
+    private TextField txtCantidadEliminar;
+    @FXML
+    private TextField txtCosteEnvioEliminar;
+    @FXML
+    private CheckBox chkEnviadoEliminar;
+    @FXML
+>>>>>>> 3124131 (update to juan)
     private TextField txtHoraPedido;
     @FXML
     private TextField txtCantidad;
     @FXML
     private TextField txtCosteEnvio;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3124131 (update to juan)
     @FXML
     private CheckBox chkenviado;
     @FXML
@@ -42,12 +78,41 @@ public class controladorPedido implements Initializable  {
     private ComboBox<String> cmbProducto;
     @FXML
     private ComboBox<String> cmbCliente;
+<<<<<<< HEAD
+=======
+    @FXML
+    private ComboBox<String> cmbNumPedido;
+    @FXML
+    private ComboBox<String> cmbPedidoListar;
+
+    @FXML
+    private TableColumn<Pedido, Integer> grid_NumPedido ;
+
+    @FXML
+    private TableColumn<Pedido, Date> grid_FechaHora;
+    @FXML
+    private TableColumn<Pedido, Double> grid_costeEnvio;
+
+    @FXML
+    private TableColumn<Pedido, Integer> grid_cantidad;
+
+    @FXML
+    private TableColumn<Pedido, Boolean> grid_enviado;
+    @FXML
+    private TableColumn<Pedido, String> grid_codArticulo;
+
+    @FXML
+    private TableColumn<Pedido, String> grid_cliente= new TableColumn<>("Cliente");
+    @FXML
+    private TableView table_Pedidos;
+>>>>>>> 3124131 (update to juan)
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             datos = new Datos();
+<<<<<<< HEAD
             cargarComboBoxArticulos();
             cargarComboBoxClientes();
         } catch (Exception e) {
@@ -56,6 +121,77 @@ public class controladorPedido implements Initializable  {
         }
 
 
+=======
+        } catch (DatabaseConnectionException e) {
+            throw new RuntimeException(e);
+        }
+        if (cmbProducto != null && cmbNumPedido == null) {
+            // Se está cargando el formulario de crear pedido
+            cargarComboBoxesParaCrearPedido();
+        } else if (cmbNumPedido != null && cmbProducto == null) {
+            // Se está cargando el formulario de eliminar pedido
+            cargarComboBoxesParaEliminarPedido();
+        } else if (cmbNumPedido == null && cmbProducto == null){
+            //Se está cargando el formulario mostrar
+            cargarComboBoxMostrarPedidos();
+        }
+    }
+
+    private void cargarComboBoxesParaCrearPedido() {
+        // Carga los ComboBoxes para crear pedido
+        // Tu código existente para cargar los ComboBoxes de artículos y clientes
+        cargarComboBoxArticulos();
+        cargarComboBoxClientes();
+    }
+    private void cargarComboBoxesParaEliminarPedido() {
+        // Carga el ComboBox para eliminar pedido
+        // Tu código existente para cargar los ComboBoxes de pedidos
+        cargarComboBoxPedidos();
+    }
+    private void cargarComboBoxArticulos() {
+        ArrayList<Articulo> art = datos.obtenerArticulos();
+        ObservableList<String> nombresArticulos = FXCollections.observableArrayList();
+
+        for (Articulo articulo : art) {
+            nombresArticulos.add(articulo.getCodigo());
+        }
+
+        cmbProducto.setItems(nombresArticulos);
+    }
+
+    private void cargarComboBoxClientes() {
+        ArrayList<Cliente> cl = datos.mostrarTodosLosClientes();
+        ObservableList<String> mailClientes = FXCollections.observableArrayList();
+
+        for (Cliente cliente : cl) {
+            mailClientes.add(cliente.getCorreoElectronico());
+        }
+
+        cmbCliente.setItems(mailClientes);
+    }
+
+    private void cargarComboBoxPedidos() {
+        ArrayList<Pedido> ped = datos.obtenerPedidos();
+        ObservableList<String> numerPedido = FXCollections.observableArrayList();
+
+        for (Pedido pedido : ped) {
+            numerPedido.add(String.valueOf(pedido.getNumeroPedido()));
+        }
+
+        cmbNumPedido.setItems(numerPedido);
+
+    }
+
+    private void cargarComboBoxMostrarPedidos(){
+        ArrayList<Pedido> ped = datos.obtenerPedidos();
+        ObservableList<String> numerPedido = FXCollections.observableArrayList();
+
+        for (Pedido pedido : ped) {
+            numerPedido.add(String.valueOf(pedido.getNumeroPedido()));
+        }
+
+        cmbPedidoListar.setItems(numerPedido);
+>>>>>>> 3124131 (update to juan)
     }
     //Crear Pedido
     @FXML
@@ -160,6 +296,7 @@ public class controladorPedido implements Initializable  {
         alert.setContentText(content);
         alert.showAndWait();
     }
+<<<<<<< HEAD
     private void cargarComboBoxArticulos() {
         ArrayList<Articulo> art = datos.obtenerArticulos();
         ObservableList<String> nombresArticulos = FXCollections.observableArrayList();
@@ -196,5 +333,206 @@ public class controladorPedido implements Initializable  {
     // Mostrar Enviados
 
     // Mostrar Pendientes
+=======
+
+
+
+    // Eliminar Pedido
+
+    @FXML
+    private  void clk_seleccionEliminar(ActionEvent event){
+        String numeroPedidoSeleccionado = cmbNumPedido.getSelectionModel().getSelectedItem();
+        if (numeroPedidoSeleccionado != null && !numeroPedidoSeleccionado.isEmpty()) {
+            try {
+                int numPedido = Integer.parseInt(numeroPedidoSeleccionado);
+                Pedido pedidoSeleccionado = datos.obtenerUnPedido(numPedido);
+                if (pedidoSeleccionado != null) {
+                    // Actualiza los campos del formulario con los datos del pedido seleccionado
+                    txtcodigoProducto.setText(pedidoSeleccionado.getArticulo().getCodigo());
+                    txtClienteEliminar.setText(pedidoSeleccionado.getMailCliente());
+                    txtCantidadEliminar.setText(String.valueOf(pedidoSeleccionado.getCantidad()));
+                    txtCosteEnvioEliminar.setText(String.valueOf(pedidoSeleccionado.getCosteEnvio()));
+
+                    txtcodigoProducto.setEditable(false);
+                    txtClienteEliminar.setEditable(false);
+                    txtCantidadEliminar.setEditable(false);
+                    txtCosteEnvioEliminar.setEditable(false);
+
+
+                    boolean esEnviado = pedidoSeleccionado.isEnviado(); // isEnviado() debería devolver un booleano
+                    chkEnviadoEliminar.setSelected(esEnviado);
+                    chkEnviadoEliminar.setDisable(true);
+                }
+            } catch (NumberFormatException e) {
+                // Manejar el error en caso de que el número de pedido no sea un número válido
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void eliminarPedidoSeleccionado() {
+        String numeroPedidoSeleccionado = cmbNumPedido.getSelectionModel().getSelectedItem();
+        if (numeroPedidoSeleccionado == null || numeroPedidoSeleccionado.isEmpty()) {
+            // Mostrar una alerta indicando que no se ha seleccionado ningún pedido
+            mostrarAlertaEliminar("Eliminar Pedido", "No se ha seleccionado ningún pedido para eliminar.");
+            return;
+        }
+
+        try {
+            int numPedido = Integer.parseInt(numeroPedidoSeleccionado);
+
+            // Llamar al método para eliminar el pedido de la base de datos
+            datos.eliminarPedido(numPedido);
+
+            // Actualizar el ComboBox eliminando el pedido
+            cmbNumPedido.getItems().remove(numeroPedidoSeleccionado);
+
+            // Mostrar una alerta de éxito
+            mostrarAlertaEliminar("Eliminar Pedido", "Pedido eliminado con éxito.");
+
+        } catch (NumberFormatException e) {
+            // Manejar excepción si el número de pedido no es un número válido
+            mostrarAlertaEliminar("Error", "Formato de número de pedido inválido.");
+        } catch (Exception e) {
+            // Manejar otras posibles excepciones
+            mostrarAlertaEliminar("Error", "Error al eliminar el pedido: " + e.getMessage());
+        }
+    }
+    @FXML
+    private void clk_eliminarPedido(ActionEvent event){
+
+        eliminarPedidoSeleccionado();
+        limpiarFormularioEliminar();
+    }
+    private void limpiarFormularioEliminar(){
+        txtCantidadEliminar.clear();
+        txtCosteEnvioEliminar.clear();
+        txtcodigoProducto.clear();
+        txtClienteEliminar.clear();
+        cmbNumPedido.getSelectionModel().clearSelection();
+        chkEnviadoEliminar.setSelected(false);
+
+    }
+    private void mostrarAlertaEliminar(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+
+
+    // Mostrar Todos
+    @FXML
+    private void clk_pedidoListarTodos(){
+        table_Pedidos.getItems().clear();
+        table_Pedidos.setEditable(true);
+
+        ArrayList<Pedido> ped = datos.obtenerPedidos();
+
+
+        grid_NumPedido.setCellValueFactory(new PropertyValueFactory<>("numeroPedido"));
+        grid_FechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraPedido"));
+        grid_costeEnvio.setCellValueFactory(new PropertyValueFactory<>("costeEnvio"));
+        grid_cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        grid_enviado.setCellValueFactory((new PropertyValueFactory<>("enviado")));
+        grid_codArticulo.setCellValueFactory(cellData ->{
+            String codigoArticulo = cellData.getValue().getArticulo().getCodigo();
+            return new SimpleStringProperty(codigoArticulo);
+        });
+
+       // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+
+
+        for (Pedido pedidos : ped) {
+
+            table_Pedidos.getItems().add(pedidos);
+
+        }
+    }
+    @FXML
+    private void clk_opt_pedidoListarEnviado(){
+        table_Pedidos.getItems().clear();
+        table_Pedidos.setEditable(true);
+
+        ArrayList<Pedido> ped = datos.obtenerPedidos();
+
+
+        grid_NumPedido.setCellValueFactory(new PropertyValueFactory<>("numeroPedido"));
+        grid_FechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraPedido"));
+        grid_costeEnvio.setCellValueFactory(new PropertyValueFactory<>("costeEnvio"));
+        grid_cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        grid_enviado.setCellValueFactory((new PropertyValueFactory<>("enviado")));
+        grid_codArticulo.setCellValueFactory(cellData ->{
+            String codigoArticulo = cellData.getValue().getArticulo().getCodigo();
+            return new SimpleStringProperty(codigoArticulo);
+        });
+
+        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+
+
+        for (Pedido pedidos : ped) {
+            if(pedidos.isEnviado()) {
+                table_Pedidos.getItems().add(pedidos);
+            }
+        }
+    }
+    @FXML
+    private void clk_pedidoListarPendiente(){
+        table_Pedidos.getItems().clear();
+        table_Pedidos.setEditable(true);
+
+        ArrayList<Pedido> ped = datos.obtenerPedidos();
+
+
+        grid_NumPedido.setCellValueFactory(new PropertyValueFactory<>("numeroPedido"));
+        grid_FechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraPedido"));
+        grid_costeEnvio.setCellValueFactory(new PropertyValueFactory<>("costeEnvio"));
+        grid_cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        grid_enviado.setCellValueFactory((new PropertyValueFactory<>("enviado")));
+        grid_codArticulo.setCellValueFactory(cellData ->{
+            String codigoArticulo = cellData.getValue().getArticulo().getCodigo();
+            return new SimpleStringProperty(codigoArticulo);
+        });
+
+        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+
+
+        for (Pedido pedidos : ped) {
+            if(!pedidos.isEnviado()) {
+                table_Pedidos.getItems().add(pedidos);
+            }
+        }
+    }
+    @FXML
+    private void clk_listarPedidoCombo(){
+        table_Pedidos.getItems().clear();
+        table_Pedidos.setEditable(true);
+
+        Pedido ped = datos.obtenerUnPedido(Integer.parseInt(cmbPedidoListar.getValue()));
+
+
+        grid_NumPedido.setCellValueFactory(new PropertyValueFactory<>("numeroPedido"));
+        grid_FechaHora.setCellValueFactory(new PropertyValueFactory<>("fechaHoraPedido"));
+        grid_costeEnvio.setCellValueFactory(new PropertyValueFactory<>("costeEnvio"));
+        grid_cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        grid_enviado.setCellValueFactory((new PropertyValueFactory<>("enviado")));
+        grid_codArticulo.setCellValueFactory(cellData ->{
+            String codigoArticulo = cellData.getValue().getArticulo().getCodigo();
+            return new SimpleStringProperty(codigoArticulo);
+        });
+
+        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+
+
+
+        table_Pedidos.getItems().add(ped);
+
+
+    }
+
+
+>>>>>>> 3124131 (update to juan)
 
 }

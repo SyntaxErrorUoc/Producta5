@@ -29,7 +29,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<<<<<<< HEAD
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+=======
+>>>>>>> 3124131 (update to juan)
          </rowConstraints>
          <children>
             <Label text="Eliminar Pedido" GridPane.columnSpan="2">
@@ -64,7 +67,11 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label text="Fecha / Hora Pedido" GridPane.rowIndex="4">
+=======
+            <Label text="Cantidad" GridPane.rowIndex="4">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
@@ -72,6 +79,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label text="Cantidad" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -81,6 +89,9 @@
                </font>
             </Label>
             <Label text="Coste de envío" GridPane.rowIndex="6">
+=======
+            <Label text="Coste de envío" GridPane.rowIndex="5">
+>>>>>>> 3124131 (update to juan)
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -88,7 +99,11 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
+<<<<<<< HEAD
             <Button fx:id="btn_eliminarPedido" mnemonicParsing="false" onAction="#clk_eliminarPedido" text="Eliminar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+=======
+            <Button fx:id="btn_eliminarPedido" mnemonicParsing="false" onAction="#clk_eliminarPedido" text="Eliminar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -101,32 +116,52 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
+<<<<<<< HEAD
             <TextField fx:id="txtCliente" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+=======
+            <TextField fx:id="txtClienteEliminar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
+<<<<<<< HEAD
             <TextField fx:id="txtFechaHora" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+=======
+            <TextField fx:id="txtCantidadEliminar" prefHeight="25.0" prefWidth="416.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
+<<<<<<< HEAD
             <TextField fx:id="txtCantidad" prefHeight="25.0" prefWidth="416.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+=======
+            <TextField fx:id="txtCosteEnvioEliminar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
+<<<<<<< HEAD
             <TextField fx:id="txtCosteEnvio" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
             <ComboBox prefHeight="25.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+=======
+            <ComboBox fx:id="cmbNumPedido" onAction="#clk_seleccionEliminar" prefHeight="25.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </ComboBox>
+<<<<<<< HEAD
             <CheckBox fx:id="chkEnviado" mnemonicParsing="false" text="Enviado" GridPane.rowIndex="7">
+=======
+            <CheckBox fx:id="chkEnviadoEliminar" mnemonicParsing="false" text="Enviado" GridPane.rowIndex="6">
+>>>>>>> 3124131 (update to juan)
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
