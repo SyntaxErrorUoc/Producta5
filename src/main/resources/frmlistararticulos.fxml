@@ -33,7 +33,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TableView fx:id="table_articulos" layoutX="6.0" onSort="#clk_sort" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="table_articulos" layoutX="6.0" onMouseClicked="#clk_abrirvista" onSort="#clk_sort" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="clm_cp" prefWidth="111.0" text="Codigo Producto" />
                         <TableColumn fx:id="clm_descripcion" prefWidth="306.0" text="Descripción" />

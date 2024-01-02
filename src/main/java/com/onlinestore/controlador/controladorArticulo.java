@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import com.onlinestore.modelo.Articulo;
 import com.onlinestore.modelo.Datos;
@@ -116,12 +117,13 @@ public class controladorArticulo implements Initializable {
 
     @FXML
     void clk_buscararticulo2(ActionEvent event) {
-        // Limpiamos la tabla
-        table_articulos.getItems().clear();
         // Mostrar un artículo
         String cp;
         Articulo art;
         cp = cmb_cpArticulo.getValue();
+
+        // Limpiamos la tabla
+        table_articulos.getItems().clear();
 
         // Asociamos las columnas
         clm_cp.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -142,6 +144,13 @@ public class controladorArticulo implements Initializable {
     void clk_buscararticulo1(ActionEvent event) {
         // Limpiamos la tabla
         table_articulos.getItems().clear();
+
+        // Asociamos las columnas
+        clm_cp.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        clm_descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        clm_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        clm_tiempoPreparacion.setCellValueFactory(new PropertyValueFactory<>("tiempoPreparacion"));
+
         // Ver todos los artículos
         ArrayList<Articulo> articulosList = datos.obtenerArticulos();
         ObservableList<Articulo> articulosObservableList = FXCollections.observableArrayList(articulosList);
@@ -154,13 +163,19 @@ public class controladorArticulo implements Initializable {
         String cp="";
         Articulo a;
 
-        cp = cpArticulo.getText();
+        cp = cmb_cpArticulo.getValue();
         a = datos.obtenerArticulo(cp);
 
         if (articuloExiste(cp)){
             datos.eliminarArticulo(cp);
             informacion("Articulo eliminado");
-            stage.close();
+
+            // Mostramos los datos
+            cmb_cpArticulo.setValue("");
+            descripcionArticulo.setText("");
+            precioArticulo.setText("");
+            tiempopreparacionArticulo.setText("");
+
         }else{
             alerta("Código de producto no existente.");
         }
@@ -174,16 +189,11 @@ public class controladorArticulo implements Initializable {
         String tiempo="";
         Duration tiempoPrep = null;
 
-        cp = cpArticulo.getText();
+        cp = cmb_cpArticulo.getValue();
 
         Articulo a;
         a = datos.obtenerArticulo(cp);
         if (articuloExiste(cp)){
-            // Mostramos los datos
-            descripcionArticulo.setText(a.getDescripcion());
-            precioArticulo.setText(String.valueOf(a.getPrecio()));
-            tiempopreparacionArticulo.setText(String.valueOf(a.getTiempoPreparacion()));
-
             // cargamos lo que hay escrito
             desc = descripcionArticulo.getText();
             precio = Double.parseDouble(precioArticulo.getText());
@@ -196,8 +206,12 @@ public class controladorArticulo implements Initializable {
                     tiempoPrep = Duration.ofHours(horas).plusMinutes(minutos);
                     // -------------------------------------------------------------
                     Articulo nuevoA = new Articulo(cp,desc,precio,tiempoPrep);
-                    datos.agregarArticulo(nuevoA);
+                    datos.modificarArticulo(nuevoA);
                     // -------------------------------------------------------------
+                    cmb_cpArticulo.setValue("");
+                    descripcionArticulo.setText("");
+                    precioArticulo.setText("");
+                    tiempopreparacionArticulo.setText("");
                 }catch(NumberFormatException e){
                     alerta("La hora no es valida");
                 }
@@ -231,6 +245,10 @@ public class controladorArticulo implements Initializable {
                 // -------------------------------------------------------------
                 Articulo art = new Articulo(cp, desc, precio, tiempoPrep);
                 datos.agregarArticulo(art);
+                cpArticulo.setText("");
+                descripcionArticulo.setText("");
+                precioArticulo.setText("");
+                tiempopreparacionArticulo.setText("");
                 // -------------------------------------------------------------
 
             }catch(NumberFormatException e){
@@ -267,6 +285,13 @@ public class controladorArticulo implements Initializable {
             return false;
         }
     }
+
+    @FXML
+    void clk_abrirvista(MouseEvent event) {
+        int selectedIndex = table_articulos.getSelectionModel().getSelectedIndex();
+        informacion(String.valueOf(table_articulos.getItems().get(selectedIndex)));
+    }
+
 
     void alerta(String textoalerta){
         Alert alert = new Alert(Alert.AlertType.WARNING);
