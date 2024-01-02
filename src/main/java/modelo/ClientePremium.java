@@ -28,8 +28,7 @@ public class ClientePremium extends Cliente{
 	public ClientePremium(String correoElectronico, String nombre, String direccion, double descuento) {
 		super(correoElectronico, nombre, direccion);
 		this.descuento = descuento;
-		this.cuotaAnual = 0;
-		this.descuento = 0;
+
 
 	}
 
