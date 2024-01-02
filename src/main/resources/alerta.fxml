@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="211.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controlador.controladorAlerta">
+            fx:controller="com.onlinestore.controlador.controladorAlerta">
    <children>
       <Label layoutX="21.0" layoutY="24.0" prefHeight="46.0" prefWidth="120.0" text="Alerta">
          <font>

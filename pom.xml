@@ -114,7 +114,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.onlinestore.onlinestore_producto5/vista.GestionOS</mainClass>
+              <mainClass>com.onlinestore.onlinestore_producto5/com.onlinestore.vista.GestionOS</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

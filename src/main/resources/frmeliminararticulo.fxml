@@ -12,7 +12,7 @@
 
 
 <AnchorPane prefHeight="266.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controlador.controladorArticulo">
+            fx:controller="com.onlinestore.controlador.controladorArticulo">
    <children>
       <GridPane layoutX="125.0" layoutY="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
