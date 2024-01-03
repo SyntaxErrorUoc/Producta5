@@ -1,0 +1,23 @@
+<!-- logback.xml -->
+<configuration>
+
+    <!-- Configuración para desactivar los mensajes de Hibernate -->
+    <logger name="org.hibernate" level="OFF" />
+
+    <!-- Configuración de la consola (puedes cambiarla según tus necesidades) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <!--
+            En este ejemplo, el nivel de raíz se establece en "info", lo que significa que solo se imprimirán mensajes
+            de nivel INFO o superior. Puedes ajustar esto según tus necesidades, estableciendo el nivel en "warn" o
+            "error" si solo quieres ver advertencias o errores.
+        -->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

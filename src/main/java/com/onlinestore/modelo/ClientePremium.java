@@ -1,4 +1,4 @@
-package com.onlinestore.onlinestore_producto5.modelo;
+package com.onlinestore.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
@@ -9,9 +9,15 @@ import jakarta.persistence.Entity;
  * @version 2.0.1
  */
 @Entity
-@DiscriminatorValue("CERO")
-public class ClienteEstandar extends Cliente {
+@DiscriminatorValue("UNO")
+public class ClientePremium extends Cliente{
+	@Column(name = "descuento")
+	private double descuento;
+	@Column(name = "cuotaAnual")
+	private int cuotaAnual = 10;
 
+	@Column(name = "vip")
+	private int vip  = 1;
 
 	/**
 	 * Constructor de la clase heredada de cliente
@@ -19,36 +25,23 @@ public class ClienteEstandar extends Cliente {
 	 * @param nombre recibe un String
 	 * @param direccion recibe un String
 	 */
-	@Column(name = "descuento")
-	private double descuento = 0.0;
-	@Column(name = "cuotaAnual")
-	private int cuotaAnual = 0;
-	@Column(name = "vip")
-	private int vip  = 0;
-
-
-	/**
-	 * Método para crear un cliente estandar
-	 * @param correoElectronico identificador único de la tabla
-	 * @param nombre nombre del cliente
-	 * @param direccion dirección del cliente
-	 */
-	public ClienteEstandar(String correoElectronico, String nombre, String direccion) {
+	public ClientePremium(String correoElectronico, String nombre, String direccion, double descuento) {
 		super(correoElectronico, nombre, direccion);
+		this.descuento = descuento;
 
 
 	}
 
 	/**
-	 * Constructor vacío necesario para Hibernate.
+	 * Método vacío necesario para Hibernate
 	 */
-	public ClienteEstandar() {
+	public ClientePremium() {
 
 	}
 
 	/**
 	 * Getter para vip
-	 * @return valor en vip
+	 * @return valor de vip
 	 */
 	public int getVip() {
 		return vip;
@@ -56,7 +49,7 @@ public class ClienteEstandar extends Cliente {
 
 	/**
 	 * Método para el valor de vip
-	 * @return valor en vip
+	 * @return valor de vip
 	 */
 	@Override
 	protected int setVip() {
@@ -65,7 +58,7 @@ public class ClienteEstandar extends Cliente {
 
 	/**
 	 * Setter para vip
-	 * @param vip valor en vip
+	 * @param vip valor de vip
 	 */
 	public void setVip(int vip) {
 		this.vip = vip;
@@ -75,11 +68,9 @@ public class ClienteEstandar extends Cliente {
 	 * Implementación de la clase abstracta tipoCliente
 	 * @return devuelve un tipo String
 	 */
-
 	@Override
 	public String tipoCliente() {
-		
-		return "Estandar";
+		return "Premium";
 	}
 
 	/**
@@ -89,9 +80,18 @@ public class ClienteEstandar extends Cliente {
 	@Override
 	public double calcAnual() {
 		// Implementación del cálculo de la cuota anual para un cliente premium.
-		double cuota = 0.0;
+		double cuota = 30.0;
 		return cuota;
 	}
+
+	public double getDescuento() {
+		return descuento;
+	}
+
+	public int getCuotaAnual() {
+		return cuotaAnual;
+	}
+
 	/**
 	 * Implementación de la clase abstracta descuentoEnv
 	 * @return devuelve un tipo double
@@ -99,18 +99,16 @@ public class ClienteEstandar extends Cliente {
 	@Override
 	public double descuentoEnv() {
 		// Implementación del descuento de gastos de envío para un cliente premium.
-		double descuentoE = 0.0;
+		double descuentoE = 0.2;
 		return descuentoE;
 	}
 
 	/**
-	 * Método que muestra por pantalla los datos del cliente estantar.
-	 * @return cadena con el resultado.
+	 * Método que muestra los datos del cliente Premium
+	 * @return
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + "CLIENTE STANDARD\n";
+		return super.toString() + "CLIENTE PREMIUM " + "y su descuento es " + this.descuento+"\n";
 	}
-	
-
 }

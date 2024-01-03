@@ -1,4 +1,4 @@
-package com.onlinestore.onlinestore_producto5.modelo;
+package com.onlinestore.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +35,6 @@ public class Articulo {
 	 */
 	// Constructor
 	public Articulo(String codigo, String descripcion, double precio, Duration tiempoPreparacion) {
-		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -143,6 +142,6 @@ public class Articulo {
 	}
 
 
-    
+
 
 }
