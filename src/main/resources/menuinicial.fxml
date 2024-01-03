@@ -29,7 +29,6 @@
               <MenuItem id="InsertarArticulo" fx:id="mnu_insertararticulo" mnemonicParsing="false" onAction="#clk_insertararticulo" text="Insertar Artículo" />
                   <MenuItem id="EliminarArticulo" fx:id="mnu_eliminararticulo" mnemonicParsing="false" onAction="#clk_eliminararticulo" text="Eliminar Artículo" />
                   <MenuItem id="EditarArticulo" fx:id="mnu_editararticulo" mnemonicParsing="false" onAction="#clk_editararticulo" text="Editar Artículo" />
-                  <MenuItem id="BuscarArticulo" fx:id="mnu_buscararticulo" mnemonicParsing="false" onAction="#clk_buscararticulo" text="Buscar Artículo" />
                   <MenuItem id="mostrarTodosArticulo" fx:id="mnu_mostrararticulos" mnemonicParsing="false" onAction="#clk_mostrartodosarticulos" text="Mostrar todos los artículos" />
             </items>
           </Menu>
@@ -39,9 +38,6 @@
                   <MenuItem id="EditarCliente" fx:id="mnu_editarcliente" mnemonicParsing="false" onAction="#clk_editarcliente" text="Editar Cliente" />
                   <MenuItem id="EliminarCliente" fx:id="mnu_eliminarcliente" mnemonicParsing="false" onAction="#clk_eliminarcliente" text="Eliminar Cliente" />
                   <MenuItem id="BuscarCliente" fx:id="mnu_buscarcliente" mnemonicParsing="false" onAction="#clk_buscarcliente" text="MostrarCliente" />
-                  <MenuItem id="ListarPremium" fx:id="mnu_listarpremium" mnemonicParsing="false" onAction="#clk_listapremium" text="Mostrar Clientes Premium" />
-                  <MenuItem id="ListarEstandar" fx:id="mnu_listarestandar" mnemonicParsing="false" onAction="#clk_listaestandar" text="Mostrar Clientes Estandar" />
-              <MenuItem id="MostrarTodosClientes" fx:id="mnu_listartodosclientes" mnemonicParsing="false" onAction="#clk_mostrartodosclientes" text="Mostrar Clientes" />
             </items>
           </Menu>
           <Menu id="mnu_Pedidos" mnemonicParsing="false" text="Pedido">

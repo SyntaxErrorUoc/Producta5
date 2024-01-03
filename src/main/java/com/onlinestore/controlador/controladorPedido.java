@@ -442,7 +442,10 @@ public class controladorPedido implements Initializable  {
             return new SimpleStringProperty(codigoArticulo);
         });
 
-       // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+        grid_cliente.setCellValueFactory(cellData ->{
+            String ClienteStandard_mail = cellData.getValue().getCliente().getCorreoElectronico();
+            return new SimpleStringProperty(ClienteStandard_mail);
+        });
 
 
         for (Pedido pedidos : ped) {
@@ -468,8 +471,11 @@ public class controladorPedido implements Initializable  {
             String codigoArticulo = cellData.getValue().getArticulo().getCodigo();
             return new SimpleStringProperty(codigoArticulo);
         });
+        grid_cliente.setCellValueFactory(cellData ->{
+            String ClienteStandard_mail = cellData.getValue().getCliente().getCorreoElectronico();
+            return new SimpleStringProperty(ClienteStandard_mail);
+        });
 
-        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
 
 
         for (Pedido pedidos : ped) {
@@ -496,7 +502,10 @@ public class controladorPedido implements Initializable  {
             return new SimpleStringProperty(codigoArticulo);
         });
 
-        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+        grid_cliente.setCellValueFactory(cellData ->{
+            String ClienteStandard_mail = cellData.getValue().getCliente().getCorreoElectronico();
+            return new SimpleStringProperty(ClienteStandard_mail);
+        });
 
 
         for (Pedido pedidos : ped) {
@@ -523,7 +532,10 @@ public class controladorPedido implements Initializable  {
             return new SimpleStringProperty(codigoArticulo);
         });
 
-        // grid_cliente.setCellValueFactory(new PropertyValueFactory<>("ClienteStandard_mail"));
+        grid_cliente.setCellValueFactory(cellData ->{
+            String ClienteStandard_mail = cellData.getValue().getCliente().getCorreoElectronico();
+            return new SimpleStringProperty(ClienteStandard_mail);
+        });
 
 
 
