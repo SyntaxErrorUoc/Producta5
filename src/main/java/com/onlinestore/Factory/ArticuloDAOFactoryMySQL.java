@@ -43,8 +43,6 @@ public class ArticuloDAOFactoryMySQL implements ArticuloDAO{
             session.getTransaction().commit();
             session.close();
             sessionFactory.close();
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -86,11 +84,10 @@ public class ArticuloDAOFactoryMySQL implements ArticuloDAO{
     @Override
     public void eliminar(String cp) {
 
-        SessionFactory sessionFactory = (SessionFactory) new Configuration().configure("hibernate.cfg.xml")
+        SessionFactory sessionFactory = (SessionFactory) new Configuration()
+                .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Articulo.class)
                 .buildSessionFactory();
-
-
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();

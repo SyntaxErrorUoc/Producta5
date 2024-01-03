@@ -79,7 +79,9 @@ public class controladorArticulo implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             datos = new Datos();
-            cargarComboBoxArticulos();
+            if (cmb_cpArticulo!=null){
+                cargarComboBoxArticulos();
+            }
         } catch (Exception e) {
             // Manejar excepción, como mostrar un mensaje de error
             e.printStackTrace();

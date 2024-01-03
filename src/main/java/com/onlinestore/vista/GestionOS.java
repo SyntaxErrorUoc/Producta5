@@ -20,7 +20,7 @@ public class GestionOS extends Application {
     public void start(Stage stage) throws IOException {
         // set up the scene
         try{
-            this.root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+            this.root = FXMLLoader.load(getClass().getResource("/menuinicial.fxml"));
             Scene scene = new Scene(this.root);
             Image icon = new Image("logo.jpeg");
             stage.getIcons().add(icon);

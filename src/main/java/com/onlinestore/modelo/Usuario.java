@@ -1,6 +1,5 @@
 package com.onlinestore.modelo;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -45,7 +44,7 @@ public class Usuario {
     public String toString() {
         return "usuarios{" +
                 "usuario='" + usuario + '\'' +
-                ", contrasenya='" + contrasenya + '\'' +
+                ", contraseña=****************' " +
                 '}';
     }
 }
