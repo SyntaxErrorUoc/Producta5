@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.onlinestore.controlador.controladorCliente">
+<AnchorPane prefHeight="600.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.onlinestore.controlador.controladorCliente">
    <children>
       <SplitPane dividerPositions="0.11152416356877323" layoutX="352.0" layoutY="100.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
         <items>
@@ -48,7 +48,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="798.0">
                <children>
-                  <TableView fx:id="table_clientes" prefHeight="475.0" prefWidth="798.0">
+                  <TableView fx:id="table_clientes" prefHeight="475.0" prefWidth="923.0">
                     <columns>
                       <TableColumn fx:id="grid_mail" prefWidth="204.0" text="Mail" />
                       <TableColumn fx:id="grid_name" minWidth="0.0" prefWidth="127.0" text="Nombre" />

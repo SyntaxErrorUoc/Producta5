@@ -20,6 +20,6 @@
         <mapping class="com.onlinestore.modelo.Articulo"/>
         <mapping class="com.onlinestore.modelo.Cliente"/>
         <mapping class="com.onlinestore.modelo.Pedido"/>
-
+        <mapping class="com.onlinestore.modelo.Usuario"/>
     </session-factory>
 </hibernate-configuration>

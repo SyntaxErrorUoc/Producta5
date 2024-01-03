@@ -21,7 +21,6 @@
                   <MenuItem id="EliminarArticulo" fx:id="mnu_eliminararticulo" mnemonicParsing="false" onAction="#clk_eliminararticulo" text="Eliminar Artículo" />
                   <MenuItem id="EditarArticulo" fx:id="mnu_editararticulo" mnemonicParsing="false" onAction="#clk_editararticulo" text="Editar Artículo" />
                   <MenuItem id="BuscarArticulo" fx:id="mnu_buscararticulo" mnemonicParsing="false" onAction="#clk_buscararticulo" text="Buscar Artículo" />
-                  <MenuItem id="mostrarTodosArticulo" fx:id="mnu_mostrararticulos" mnemonicParsing="false" onAction="#clk_mostrartodosarticulos" text="Mostrar todos los artículos" />
             </items>
           </Menu>
           <Menu id="mnu_Cliente" mnemonicParsing="false" text="Cliente">
@@ -36,15 +35,11 @@
             <items>
               <MenuItem id="InsertarPedido" fx:id="mnu_insertarpedido" mnemonicParsing="false" onAction="#clk_insertarpedido" text="Insertar Pedido" />
                   <MenuItem id="EliminarPedido" fx:id="mnu_editarpedido" mnemonicParsing="false" onAction="#clk_eliminarpedido" text="Eliminar Pedido" />
-                  <MenuItem id="BuscarPedido" fx:id="mnu_buscarpedido" mnemonicParsing="false" onAction="#clk_buscarpedido" text="BuscarPedido" />
-                  <MenuItem id="ListarPendientes" fx:id="mnu_listarpendientes" mnemonicParsing="false" onAction="#clk_listarpendientes" text="Listar Pedidos Pendientes " />
-                  <MenuItem id="ListarEnviados" fx:id="mnu_listarenviados" mnemonicParsing="false" onAction="#clk_listarenviados" text="Listar Pedidos Enviados" />
-                  <MenuItem id="MostrarTodosPedidos" fx:id="mnu_listartodospedidos" mnemonicParsing="false" onAction="#clk_mostrartodospedidos" text="Mostrar Pedidos" />
+                  <MenuItem id="BuscarPedido" fx:id="mnu_buscarpedido" mnemonicParsing="false" onAction="#clk_buscarpedido" text="Mostrar Pedidos" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Salir">
               <items>
-                <MenuItem id="AcercaDe" fx:id="mnu_acercade" mnemonicParsing="false" onAction="#clk_acercade" text="Acerca de..." />
                   <MenuItem id="Salir" fx:id="mnu_salir" mnemonicParsing="false" onAction="#clk_salir" text="Cerrar aplicación" />
               </items>
             </Menu>
@@ -53,11 +48,12 @@
       <SplitPane layoutX="244.0" layoutY="178.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <items>
             <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-               <items>
-                  <BorderPane fx:id="mainContainer" prefHeight="200.0" prefWidth="200.0" />
-               </items>
+              <items>
+                <AnchorPane fx:id="menuformulario" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+              </items>
             </SplitPane>
          </items>
       </SplitPane>
+      <BorderPane fx:id="mainContainer" layoutY="27.0" prefHeight="552.0" prefWidth="925.0" />
    </children>
 </AnchorPane>

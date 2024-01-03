@@ -2,13 +2,14 @@ package com.onlinestore.Factory;
 
 import com.onlinestore.ConexionMySQL.ConexionMySQL;
 import com.onlinestore.ConexionMySQL.DatabaseConnectionException;
-
 import com.onlinestore.DAO.ArticuloDAO;
 import com.onlinestore.DAO.ClienteDAO;
 import com.onlinestore.DAO.PedidoDAO;
+import com.onlinestore.DAO.UsuarioDAO;
 import com.onlinestore.modelo.Articulo;
 import com.onlinestore.modelo.Cliente;
 import com.onlinestore.modelo.Pedido;
+import com.onlinestore.modelo.Usuario;
 import org.hibernate.SessionFactory;
 
 import java.sql.Connection;
@@ -19,6 +20,7 @@ public class FactoryDAO {
     public ArticuloDAO articulo;
     public PedidoDAO pedido;
     public ClienteDAO cliente;
+    public UsuarioDAO usuario;
 
     /**
      * Método que activa las conexiones en la BBDD dependiendo del tipo de BBDD. En nuestro caso MySQL
@@ -35,6 +37,9 @@ public class FactoryDAO {
 
             SessionFactory pedido = MySQLPedido();
             this.pedido = new PedidoDAOFactoryMySQL(pedido);
+
+            SessionFactory usuario = MySQLUsuarios();
+            this.usuario = new UsuarioDAOFactoryMySQL(usuario);
 
         }catch(Exception e){
             System.out.println(e);
@@ -80,6 +85,17 @@ public class FactoryDAO {
     public SessionFactory MySQLPedido()  {
         SessionFactory ConexionPedido = null;
         ConexionPedido = ConexionMySQL.conectarMySQL(Pedido.class);
+
+        return ConexionPedido;
+    }
+
+    /**
+     * Método que conecta con la tabla pedido de la BBDD
+     * @return Conexión a la BBDD
+     */
+    public SessionFactory MySQLUsuarios()  {
+        SessionFactory ConexionPedido = null;
+        ConexionPedido = ConexionMySQL.conectarMySQL(Usuario.class);
 
         return ConexionPedido;
     }
